@@ -1,2 +1,2 @@
 # mltxml-builder
-A mltxml document generator.
+一个MLT框架文档生成器

@@ -1,0 +1,16 @@
+{
+  "name": "mltxml-builder",
+  "version": "0.1.0",
+  "description": "A mltxml document generator.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/xys20071111/mltxml-builder.git",
+  "author": "xys20071111",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "xmlbuilder2": "^3.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
