@@ -1,5 +1,6 @@
 import { v4 } from "uuid"
 import { create } from "xmlbuilder2"
+import { XMLSerializedAsObject, XMLSerializedAsObjectArray } from "xmlbuilder2/lib/interfaces"
 
 interface IProducer {
     name: string
@@ -14,7 +15,7 @@ export class Producer {
     public getId(): string {
         return this.id
     }
-    public getNode(): string {
+    public getNode(): XMLSerializedAsObject | XMLSerializedAsObjectArray {
        const node = create().ele('producer', {id: this.id})
        if (typeof this.source === 'string') {
            node.ele('property', {name: 'resource'}).txt(this.source)
@@ -23,6 +24,6 @@ export class Producer {
                node.ele('property', {name: item.name}).txt(item.text)
            }
        }
-       return node.toString()
+       return node.toObject()
     }
 }

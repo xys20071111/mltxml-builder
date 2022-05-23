@@ -1,5 +1,6 @@
 import { v4 } from "uuid"
 import { create } from "xmlbuilder2"
+import { XMLSerializedAsObject, XMLSerializedAsObjectArray } from "xmlbuilder2/lib/interfaces"
 
 interface IPlayList {
    type: 'producer' | 'blank'
@@ -17,7 +18,10 @@ export class PlayList {
     public getId(): string {
         return this.id
     }
-    public getNode(): string {
+    public add(playlist: IPlayList) {
+        this.source.push(playlist)
+    } 
+    public getNode(): XMLSerializedAsObject | XMLSerializedAsObjectArray {
        const node = create().ele('playlist', {id: this.id})
            for (const item of this.source) {
                if(item.type === 'blank') {
@@ -33,6 +37,6 @@ export class PlayList {
                    node.ele('entry', attr)
                }
            }
-       return node.toString()
+       return node.toObject()
     }
 }
