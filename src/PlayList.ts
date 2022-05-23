@@ -11,7 +11,7 @@ interface IPlayList {
 }
 export class PlayList {
     private id = v4()
-    private source: Array<IPlayList>;
+    private source: Array<IPlayList>
     constructor(source: Array<IPlayList>) {
         this.source = source
     }

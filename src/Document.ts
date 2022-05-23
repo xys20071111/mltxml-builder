@@ -1,10 +1,13 @@
 import { create } from "xmlbuilder2"
-import { PlayList } from "./PlayList";
-import { Producer } from "./Producer";
+import { MultiTrack } from "./MultiTrack"
+import { PlayList } from "./PlayList"
+import { Producer } from "./Producer"
+import { Tractor } from "./Tractor"
+import { Transition } from "./Transition"
 
 export class Document {
-    private document;
-    private root;
+    private document
+    private root
     constructor() {
         this.root = create({ version: '1.0' })
         this.document = this.root.ele('mlt')
@@ -12,7 +15,7 @@ export class Document {
     public toString(): string {
         return this.root.toString({ prettyPrint: true })
     }
-    public add(node: Producer | PlayList): void {
+    public add(node: Producer | PlayList | Tractor | MultiTrack | Transition ): void {
         this.document.ele(node.getNode())
     }
 }

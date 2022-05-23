@@ -8,7 +8,7 @@ interface IProducer {
 }
 export class Producer {
     private id = v4()
-    private source: string | Array<IProducer>;
+    private source: string | Array<IProducer>
     constructor(source: string | Array<IProducer>) {
         this.source = source
     }
