@@ -7,7 +7,7 @@ interface IInOut {
 
 export function computePosition(fps: number, time: string) {
     const timeArray: Array<string> = time.split(':')
-    return ((60 * 60 * parseInt(timeArray[0], 10)) + (60 * parseInt(timeArray[1], 10)) + parseInt(timeArray[2], 10)) * 60
+    return ((60 * 60 * parseInt(timeArray[0], 10)) + (60 * parseInt(timeArray[1], 10)) + parseInt(timeArray[2], 10)) * fps
 }
 
 export function buildPlayList(source: string, frame: IInOut[]) {
