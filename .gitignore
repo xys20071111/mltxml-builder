@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# 毕竟测试文件是直播录像啊，不可能传github的
+src/test

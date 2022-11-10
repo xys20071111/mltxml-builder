@@ -2,7 +2,7 @@ import { v4 } from "uuid"
 import { create } from "xmlbuilder2"
 import { XMLSerializedAsObject, XMLSerializedAsObjectArray } from "xmlbuilder2/lib/interfaces"
 
-interface IPlayList {
+export interface IPlayList {
    type: 'producer' | 'blank'
    id?: string
    in?: number | string
@@ -31,8 +31,13 @@ export class PlayList {
                    if (item.in && item.out) {
                        attr.in = item.in.toString()
                        attr.out = item.out.toString()
-                   } else if (item.length) {
+                   }
+                   if (item.length) {
                        attr.length = item.length
+                   }
+                   if (item.in && item.length) {
+                       attr.in = item.in.toString()
+                       attr.length = item.length.toString()
                    }
                    node.ele('entry', attr)
                }
